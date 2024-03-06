@@ -12,12 +12,17 @@ RUN apt-get update && apt-get install -y \
     gnupg1 \
     apache2 \
     zip \
-    php \
-    php-cgi \
-    php-curl \
-    php-mbstring \
-    php-xml \
-    php-zip && \
+    software-properties-common \
+    && add-apt-repository ppa:ondrej/php -y \
+    && apt-get update \
+    && apt-get install -y \
+    php8.2 \
+    php8.2-cgi \
+    php8.2-curl \
+    php8.2-mbstring \
+    php8.2-xml \
+    php8.2-zip \
+    && \
     wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - && \
     echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | tee /etc/apt/sources.list.d/elastic-7.x.list && \
     apt-get update && apt-get install -y elasticsearch && \
