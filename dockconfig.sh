@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Clonar repositório prodmais
 git clone https://github.com/unifesp/prodmais.git /var/www/html/prod
-cp -r ./prod/* ./prodmais/
-rm -r ./prod
+cp -r /var/www/html/prod/* /var/www/html/prodmais/
+rm -r /var/www/html/prod
 # Composer install
 test ! -f composer.phar && curl -s http://getcomposer.org/installer | php && php composer.phar install
 
